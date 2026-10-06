@@ -1,0 +1,8 @@
+{
+  "appId": "com.toc.emptyacceptor",
+  "appName": "Empty Stack Acceptor",
+  "webDir": ".",
+  "server": {
+    "androidScheme": "https"
+  }
+}
