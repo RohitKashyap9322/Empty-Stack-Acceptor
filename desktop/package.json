@@ -1,0 +1,37 @@
+{
+  "name": "toc-empty-stack-acceptor",
+  "version": "1.0.0",
+  "description": "Empty Stack Acceptor - Theory of Computation",
+  "main": "main.js",
+  "author": "TOC",
+  "license": "MIT",
+  "scripts": {
+    "start": "electron .",
+    "dist": "electron-builder --win nsis"
+  },
+  "devDependencies": {
+    "electron": "^38.2.0",
+    "electron-builder": "^26.0.12"
+  },
+  "build": {
+    "appId": "com.toc.emptyacceptor.desktop",
+    "productName": "TOC Empty Stack Acceptor",
+    "directories": { "output": "dist" },
+    "files": [
+      "main.js",
+      "index.html",
+      "style.css",
+      "app.js"
+    ],
+    "win": {
+      "target": "nsis"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "shortcutName": "TOC Empty Stack Acceptor"
+    }
+  }
+}
