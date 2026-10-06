@@ -21,6 +21,7 @@ function build(){
   }
   steps.push({ch:ch,before:before,action:action,after:finalStack.join(""),ok:ok});if(!ok)break;
  }
+ if(finalStack.length===1&&finalStack[0]==="Z") steps.push({ch:"ε",before:"Z",action:"pop Z at final boundary",after:"",ok:true});
 }
 function stackAt(n){if(n===0)return initial();return (steps[n-1]?steps[n-1].after:"").split("")}
 function render(){
@@ -29,7 +30,7 @@ function render(){
  $("#remaining").textContent=input.value.slice(pos)||"ε";$("#progress").style.width=(input.value.length?Math.min(100,pos/input.value.length*100):100)+"%";
  $("#count").textContent=pos+" step"+(pos===1?"":"s");
  trace.innerHTML=pos?steps.slice(0,pos).map(function(x,i){return '<tr><td>'+(i+1)+'</td><td>'+x.ch+'</td><td><code>'+x.before+'</code></td><td>'+x.action+'</td><td><code>'+x.after+'</code></td></tr>'}).join(""):'<tr><td colspan="5" class="empty">Run validation to see the trace.</td></tr>';
- const finished=pos>=steps.length,accepted=finished&&steps.length===input.value.length&&finalStack.length===0;
+ const finished=pos>=steps.length,accepted=finished&&steps.length>0&&steps[steps.length-1].after===""&&steps[steps.length-1].ch==="ε"&&steps.filter(function(x){return x.ch!=="ε"}).length===input.value.length;
  $("#status").textContent=finished?(accepted?"Accepted":"Rejected"):"Running";$("#status").className="pill "+(finished?(accepted?"ok":"no"):"");
  const result=$("#result");
  if(finished){result.className="result "+(accepted?"ok":"no");result.innerHTML='<h3>'+(accepted?"✓ Accepted by empty stack":"✕ Rejected")+'</h3><p>'+(accepted?"The complete input is consumed and the stack is empty at the final character boundary.":"The input does not finish with an empty stack, or a required transition is unavailable.")+'</p>'}
