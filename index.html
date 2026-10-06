@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#2563eb"><link rel="manifest" href="manifest.json"><link rel="icon" href="icons/icon-192.svg">
 <title>Empty Stack Acceptor</title><link rel="stylesheet" href="style.css">
 </head>
 <body><div class="app">
@@ -19,4 +19,4 @@
 <section class="card"><div class="title"><h2>Execution trace</h2><span id="count">0 steps</span></div><div class="table"><table><thead><tr><th>#</th><th>Read</th><th>Before</th><th>Action</th><th>After</th></tr></thead><tbody id="trace"><tr><td colspan="5" class="empty">Run validation to see the trace.</td></tr></tbody></table></div></section>
 <section id="result" class="result hidden"></section>
 <footer>Empty Stack Acceptor • TOC</footer>
-</div><script src="app.js"></script></body></html>
+</div><script src="app.js"></script><script>if ("serviceWorker" in navigator) { window.addEventListener("load", () => navigator.serviceWorker.register("service-worker.js")); }</script></body></html>
