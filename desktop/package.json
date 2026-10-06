@@ -5,6 +5,7 @@
   "main": "main.js",
   "author": "TOC",
   "license": "MIT",
+  "author": "Rohit Kashyap",
   "scripts": {
     "start": "electron .",
     "dist": "electron-builder --win nsis"
@@ -27,6 +28,7 @@
     ],
     "win": {
       "target": "nsis",
+      "publisherName": "Rohit Kashyap",
       "artifactName": "TOC-Empty-Stack-Acceptor-Setup.${ext}"
     },
     "nsis": {
