@@ -12,7 +12,7 @@ class MainActivity : Activity() {
         webView.settings.javaScriptEnabled = true
         webView.settings.domStorageEnabled = true
         webView.webViewClient = WebViewClient()
-        webView.loadUrl("https://rohitkashyap9322.github.io/TOC/")
+        webView.loadUrl("file:///android_asset/index.html")
         setContentView(webView)
     }
 }
