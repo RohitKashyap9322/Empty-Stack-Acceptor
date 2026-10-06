@@ -16,7 +16,9 @@
   "build": {
     "appId": "com.toc.emptyacceptor.desktop",
     "productName": "TOC Empty Stack Acceptor",
-    "directories": { "output": "dist" },
+    "directories": {
+      "output": "dist"
+    },
     "files": [
       "main.js",
       "index.html",
@@ -24,7 +26,8 @@
       "app.js"
     ],
     "win": {
-      "target": "nsis"
+      "target": "nsis",
+      "artifactName": "TOC-Empty-Stack-Acceptor-Setup.${ext}"
     },
     "nsis": {
       "oneClick": false,
