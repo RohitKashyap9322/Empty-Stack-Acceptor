@@ -76,6 +76,20 @@ jobs:
       - name: Install dependencies
         run: npm install
 
+      - name: Configure Windows code signing
+        shell: bash
+        env:
+          CSC_LINK: ${{ secrets.WINDOWS_CERT_BASE64 }}
+          CSC_KEY_PASSWORD: ${{ secrets.WINDOWS_CERT_PASSWORD }}
+        run: |
+          if [ -n "$CSC_LINK" ] && [ -n "$CSC_KEY_PASSWORD" ]; then
+            echo "Windows code-signing certificate configured."
+            echo "CSC_LINK=$CSC_LINK" >> "$GITHUB_ENV"
+            echo "CSC_KEY_PASSWORD=$CSC_KEY_PASSWORD" >> "$GITHUB_ENV"
+          else
+            echo "No Windows code-signing certificate configured; building unsigned installer."
+          fi
+
       - name: Build Windows installer
         run: npm run dist
 
