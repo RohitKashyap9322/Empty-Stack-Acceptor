@@ -28,7 +28,6 @@
     ],
     "win": {
       "target": "nsis",
-      "publisherName": "Rohit Kashyap",
       "artifactName": "TOC-Empty-Stack-Acceptor-Setup.${ext}"
     },
     "nsis": {
