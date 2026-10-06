@@ -7,12 +7,12 @@ function rules(){
 }
 function initial(){return (start.value||"Z").split("")}
 function build(){
- steps=[];pos=0;finalStack=initial();const s=input.value;
+ steps=[];pos=0;finalStack=initial();const s=input.value;let phase="a";
  for(let i=0;i<s.length;i++){
   const ch=s[i],before=finalStack.join("");let action="",ok=true;
   if(mode.value==="anbn"){
-   if(ch==="a"){finalStack.unshift("a");action="push a"}
-   else if(ch==="b"&&finalStack[0]==="a"){finalStack.shift();action="pop a"}
+   if(ch==="a"&&phase==="a"){finalStack.unshift("a");action="push a"}
+   else if(ch==="b"&&finalStack[0]==="a"){phase="b";finalStack.shift();action="pop a"}
    else{action="reject — no transition";ok=false}
   }else{
    if(ch==="("){finalStack.unshift("(");action="push ("}
